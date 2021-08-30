@@ -1,0 +1,11 @@
+<h2>Co-Author Information</h2>
+<textarea rows="20" class="form-control" readonly>
+<% if @students_checked.any?%>
+&#13;&#13;
+<% @students_checked.sort_by(&:email).each do |student| %>
+<%="Co-authored-by: #{student.name} <#{student.email}>" %>
+<% end %>
+<% else %>
+Check students on the left to get Co-Authorship Information
+<%end%>
+</textarea>
