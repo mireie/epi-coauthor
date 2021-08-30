@@ -1,12 +1,10 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="col-4">
-  <h2>Students</h2>
-  <form method="GET" action="/students/checked">
+  <h2>Developer</h2>
+  <form method="get" action="/students/checked">
     <div id="student-check">
       <% @students.order(:email).each do |student| %>
-        <input type="hidden" name="filter" value="true" />
-
         <div class="form-check">
           <input class="form-check-input" name="<%="student-#{student.id}"%>" type="checkbox" value="<%="#{student.id}"%>">
           <label class="form-check-label" for="flexCheckDefault">
@@ -14,7 +12,7 @@
           </label>
         </div>
       <% end %>
-      <%= button_to 'Submit' %>
+      <%= button_to 'Submit',{}, {class: "btn btn-primary mt-3"} %>
       </div>
     </form>
   </div>
@@ -23,4 +21,4 @@
   </div>
 </div>
 <br>
-<%= link_to 'New Student', new_student_path %>
+<%= link_to 'Add Developer', new_student_path, {class: "btn btn-primary mt-3", style: "color:white;"} %>
